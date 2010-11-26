@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">project002</string>
+	<string name="button_label">こんにちは</string>
+	<string name="button_label2">押した！</string>
+</resources>
