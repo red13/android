@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bingoroid</string>
+	<string name="title">Bingoroid</string>
+	<string name="main_text">- Bingoroid -</string>
+	<string name="main_button">Roll</string>
+</resources>
