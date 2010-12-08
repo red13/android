@@ -28,6 +28,8 @@ public class Title extends Activity
 			i.setClassName("com.example.Bingoroid",
 						   "com.example.Bingoroid.Main");
 			startActivity(i);
+
+			finish();
 		}
 	}
 }

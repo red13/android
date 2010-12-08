@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Bingoroid</string>
+
+	<!-- title -->
 	<string name="title">Bingoroid</string>
+
+	<!-- main -->
 	<string name="main_text">- Bingoroid -</string>
 	<string name="main_button">Roll</string>
+	<string name="menu_revert">Revert</string>
+	<string name="menu_exit">Exit</string>
+
+	<!-- roll -->
+	<string name="roll_text">Rolling</string>
 </resources>
