@@ -23,6 +23,7 @@ public class List extends Activity
 	class ClickListener implements View.OnClickListener	{
 		@Override
 		public void onClick(View v){
+			setResult(RESULT_OK);
 			finish();
 		}
 	}

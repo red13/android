@@ -5,16 +5,66 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-
+import android.os.Handler;
+import android.os.Message;
+import android.content.res.Resources;
+import android.content.Intent;
+import android.view.Gravity;
 
 public class Roll extends Activity
 {
+	private int mNumber;
+	private int mCount = 0;
+	private Handler mHdlr = new Handler();
+	private Runnable mRun = new Runnable(){
+			public void run(){
+				mCount++;
+
+				if( mCount < 5 ){
+					Resources res = getResources();
+					TextView v = (TextView)findViewById(R.id.roll_text);
+					if( (mCount % 2) == 0 ){
+						v.setTextSize( 12 );
+					}else{
+						v.setTextSize( 15 );
+					}
+					Message msg = mHdlr.obtainMessage();
+					mHdlr.postDelayed(mRun, 500);
+
+				}else if( mCount == 5 ){
+					Resources res = getResources();
+					TextView v = (TextView)findViewById(R.id.roll_text);
+					v.setText( Integer.toString(mNumber) );
+					v.setGravity(Gravity.CENTER);
+					v.setTextSize( 18 );
+
+					Message msg = mHdlr.obtainMessage();
+					mHdlr.postDelayed(mRun, 3000);
+
+				}else{
+					mCount = 0;
+					setResult( RESULT_OK );
+					finish();
+				}
+			}};
+			
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roll);
+
+		Intent intent = getIntent();
+		mNumber = intent.getIntExtra("next-value", 0);
+		if( mNumber == 0 ){
+			setResult( RESULT_CANCELED );
+			finish();
+		}
+
+		Message msg = mHdlr.obtainMessage();
+		mHdlr.postDelayed(mRun, 500);
 
 		TextView text = (TextView)findViewById(R.id.roll_text);
 		ClickListener listener = new ClickListener();

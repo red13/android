@@ -27,7 +27,8 @@ public class Main extends Activity
 	private Vector<Integer> mBalls = new Vector(125);
 	private int mCurIndex = 0;
 
-	private final int REQUEST_CODE_ROLL = 0;
+	private final int REQUEST_CODE_ROLL = 1;
+	private final int REQUEST_CODE_LIST = 2;
 
     /** Called when the activity is first created. */
     @Override
@@ -44,14 +45,6 @@ public class Main extends Activity
     }
 
 	public void initialize(){
-		// LinkedList<Integer> list = new LinkedList();
-		// for (int n = 0; n < 125; n++){
-		// 	list.add( n+1 );
-		// }
-
-		// Collections.shuffle(list);
-		// Collections.copy(list, mBalls);
-
 		mBalls.clear();
 		for ( int n = 0; n < 125; n++ ){
 			mBalls.add(n+1);
@@ -110,7 +103,14 @@ public class Main extends Activity
 			Intent intent = new Intent();
 			intent.setClassName("com.example.Bingoroid",
 								"com.example.Bingoroid.List");
-			startActivity(intent);
+			startActivityForResult(intent, REQUEST_CODE_LIST);
+		}else /* if( requestCode == REQUEST_CODE_LIST ) */ {
+			Resources res = getResources();
+			TextView txt_st = (TextView)findViewById(R.id.main_status);
+			txt_st.setText(res.getString(R.string.main_status_started));
+			
+			TextView txt_num = (TextView)findViewById(R.id.main_num_center);
+			txt_num.setText(Integer.toString(mCurIndex+1));
 		}
 	}
 
@@ -120,25 +120,19 @@ public class Main extends Activity
 
 			if( mStatus == STATE_INITIAL ){
 				mStatus = STATE_STARTED;
-				Resources res = getResources();
-				TextView txt_st = (TextView)findViewById(R.id.main_status);
-				txt_st.setText(res.getString(R.string.main_status_started));
 			}else{
 				mCurIndex++;
-				Resources res = getResources();
-				TextView txt_num = (TextView)findViewById(R.id.main_num_center);
-				txt_num.setText(Integer.toString(mCurIndex));
 			}
 
 			Intent intent = new Intent();
 			intent.setClassName("com.example.Bingoroid",
 								"com.example.Bingoroid.Roll");
-			// intent.setData(mBalls[mCurIndex].clone);
+			intent.putExtra("next-value", mBalls.get(mCurIndex));
 			startActivityForResult(intent, REQUEST_CODE_ROLL);
 
-			Toast.makeText( getBaseContext(),
-							Integer.toString(mCurIndex)/* + " : " + Integer.toString(mBalls.get(mCurIndex)) */,
-							Toast.LENGTH_LONG ).show();
+			// Toast.makeText( getBaseContext(),
+			// 				Integer.toString(mCurIndex)+ " : " + Integer.toString(mBalls.get(mCurIndex)),
+			// 				Toast.LENGTH_LONG ).show();
 
 		}
 	}
