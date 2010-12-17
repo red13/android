@@ -6,11 +6,18 @@
 	<string name="title">Bingoroid</string>
 
 	<!-- main -->
-	<string name="main_text">- Bingoroid -</string>
+	<string name="main_status_initial">status: initial</string>
+	<string name="main_status_started">status: started</string>
+	<string name="main_num_left">opened </string>
+	<string name="main_num_center">0</string>
+	<string name="main_num_right"> numbers</string>
 	<string name="main_button">Roll</string>
 	<string name="menu_revert">Revert</string>
 	<string name="menu_exit">Exit</string>
 
 	<!-- roll -->
 	<string name="roll_text">Rolling</string>
+
+	<!-- list -->
+	<string name="list_text">List</string>
 </resources>

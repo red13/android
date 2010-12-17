@@ -4,19 +4,42 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView
-	android:id="@+id/main_text"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/main_text"
-	android:gravity="center_horizontal"
-    />
-<Button
-	android:id="@+id/main_button"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:text="@string/main_button"
-	android:gravity="center_horizontal"
-	/>
+  <TextView
+	  android:id="@+id/main_status"
+	  android:layout_width="fill_parent" 
+	  android:layout_height="wrap_content" 
+	  android:text="@string/main_status_initial"
+	  />
+  <LinearLayout
+	  android:id="@+id/main_num"
+	  android:orientation="horizontal"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content">
+	<TextView
+		android:id="@+id/main_num_left"
+		android:layout_width="wrap_content" 
+		android:layout_height="fill_parent" 
+		android:text="@string/main_num_left"
+		/>
+	<TextView
+		android:id="@+id/main_num_center"
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:text="@string/main_num_center"
+		/>
+	<TextView
+		android:id="@+id/main_num_right"
+		android:layout_width="wrap_content" 
+		android:layout_height="fill_parent" 
+		android:text="@string/main_num_right"
+		/>
+  </LinearLayout>
+  <Button
+	  android:id="@+id/main_button"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:text="@string/main_button"
+	  android:gravity="center_horizontal"
+	  />
 </LinearLayout>
 
