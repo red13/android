@@ -19,5 +19,5 @@
 	<string name="roll_text">Rolling</string>
 
 	<!-- list -->
-	<string name="list_text">List</string>
+	<string name="list_no_data">No Data</string>
 </resources>

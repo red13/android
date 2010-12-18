@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.res.Resources;
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Collections;
 
@@ -24,7 +24,7 @@ public class Main extends Activity
 	private final int STATE_STARTED = 1;
 	private int mStatus = STATE_INITIAL;
 
-	private Vector<Integer> mBalls = new Vector(125);
+	private ArrayList<Integer> mBalls = new ArrayList(125);
 	private int mCurIndex = 0;
 
 	private final int REQUEST_CODE_ROLL = 1;
@@ -103,6 +103,8 @@ public class Main extends Activity
 			Intent intent = new Intent();
 			intent.setClassName("com.example.Bingoroid",
 								"com.example.Bingoroid.List");
+			intent.putExtra("last-value", mBalls.get(mCurIndex));
+			intent.putExtra("all-value", mBalls.toArray());
 			startActivityForResult(intent, REQUEST_CODE_LIST);
 		}else /* if( requestCode == REQUEST_CODE_LIST ) */ {
 			Resources res = getResources();
@@ -127,7 +129,7 @@ public class Main extends Activity
 			Intent intent = new Intent();
 			intent.setClassName("com.example.Bingoroid",
 								"com.example.Bingoroid.Roll");
-			intent.putExtra("next-value", mBalls.get(mCurIndex));
+			intent.putExtra("next-value", (Integer)mBalls.get(mCurIndex));
 			startActivityForResult(intent, REQUEST_CODE_ROLL);
 
 			// Toast.makeText( getBaseContext(),

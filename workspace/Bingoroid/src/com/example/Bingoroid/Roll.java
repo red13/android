@@ -34,7 +34,20 @@ public class Roll extends Activity
 				}else if( mCount == 5 ){
 					Resources res = getResources();
 					TextView v = (TextView)findViewById(R.id.roll_text);
-					v.setText( Integer.toString(mNumber) );
+					String s = new String();
+					if( mNumber < 25 ){
+						s = "B-";
+					}else if( mNumber < 50 ){
+						s = "I-";
+					}else if( mNumber < 75 ){
+						s = "N-";
+					}else if( mNumber < 100 ){
+						s = "G-";
+					}else{
+						s = "O-";
+					}
+					s = s + Integer.toString(mNumber);
+					v.setText( s );
 					v.setGravity(Gravity.CENTER);
 					v.setTextSize( 18 );
 
