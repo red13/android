@@ -35,13 +35,13 @@ public class Roll extends Activity
 					Resources res = getResources();
 					TextView v = (TextView)findViewById(R.id.roll_text);
 					String s = new String();
-					if( mNumber < 25 ){
+					if( mNumber <= 15 ){
 						s = "B-";
-					}else if( mNumber < 50 ){
+					}else if( mNumber <= 30 ){
 						s = "I-";
-					}else if( mNumber < 75 ){
+					}else if( mNumber <= 45 ){
 						s = "N-";
-					}else if( mNumber < 100 ){
+					}else if( mNumber <= 60 ){
 						s = "G-";
 					}else{
 						s = "O-";

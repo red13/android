@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.res.Resources;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Collections;
 
 public class Main extends Activity
@@ -24,7 +23,7 @@ public class Main extends Activity
 	private final int STATE_STARTED = 1;
 	private int mStatus = STATE_INITIAL;
 
-	private ArrayList<Integer> mBalls = new ArrayList(125);
+	private ArrayList<Integer> mBalls = new ArrayList(75);
 	private int mCurIndex = 0;
 
 	private final int REQUEST_CODE_ROLL = 1;
@@ -46,7 +45,7 @@ public class Main extends Activity
 
 	public void initialize(){
 		mBalls.clear();
-		for ( int n = 0; n < 125; n++ ){
+		for ( int n = 0; n < 75; n++ ){
 			mBalls.add(n+1);
 		}
 		Collections.shuffle(mBalls);
